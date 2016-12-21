@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/figures" method="post">
+    <pre>
+    <label>Figure Name: </label>
+    <input id="figure_name" type="text" name="figure[name]">
+
+    <!-- Title -->
+    <h2>Title</h2>
+    <h3>Select Titles: </h3>
+    <% Title.all.each do |title| %>
+      <input id="title_<%= Title.first.id %>" type="checkbox" name="figure[title_ids][]" value="<%= title.id %>"><%= title.name %></input>
+    <% end %>
+    <h3>Or Create new Title: </h3>
+    <label>Title Name: </label>
+    <input id="new_title" type="text" name="title[name]">
+    <label>Enter Title ID: </label>
+    <input id="title_id" type="text" name="figure[title_ids][]">
+
+    <!-- Landmark -->
+    <h2>Landmark</h2>
+    <h3>Select Landmarks: </h3>
+    <% Landmark.all.each do |landmark| %>
+      <input id="landmark_<%= Landmark.first.id %>" type="checkbox" name="figure[landmark_ids][]" value="<%= landmark.id %>"><%= landmark.name %></input>
+    <% end %>
+    <h3>Or Create new Landmark: </h3>
+    <label>Landmark Name: </label>
+    <input id="new_landmark" type="text" name="landmark[name]">
+    <label>Landmark ID: </label>
+    <input id="landmark_id" type="text" name="figure[landmark_ids][]">
+
+    <br><br>
+    <input type="submit" value="Create New Figure">
+    </pre>
+  </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form action="/figures/<%=@figure.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <pre>
+    <label>Edit Figure Name: </label>
+    <input id="figure_name" type="text" name="figure[name]" value="<%= @figure.name  %>">
+    <input id="title_id" type="text" name="figure[title_ids][]">
+    <h3>Add a Landmark: </h3>
+    <label>Landmark Name: </label>
+    <input id="new_landmark" type="text" name="landmark[name]">
+
+
+    <br><br>
+
+    <input type="submit" value="Edit Figure">
+    </pre>
+  </form>
+</body>
+</html>
